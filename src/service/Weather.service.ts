@@ -1,12 +1,17 @@
-import { baseService } from './base.service'
-
+import { baseService } from "./base.service";
+const baseurl = "baseurl";
 export class Weather {
   async getWeather() {
-    const city_nameList = ['杭州市', '郑州市', '北京市']
+    const city_nameList = ["杭州市", "郑州市", "北京市"];
     return Promise.all(
       city_nameList.map((city_name) => {
-        return baseService(`https://api.oioweb.cn/api/weather/weather?city_name=${city_name}`)
+        return baseService(
+          `https://api.oioweb.cn/api/weather/weather?city_name=${city_name}`
+        );
       })
-    )
+    );
+  }
+  async getCity() {
+    return baseurl + "city";
   }
 }
